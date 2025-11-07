@@ -1,0 +1,89 @@
+@prefix wfdesc: <http://purl.org/wf4ever/wfdesc#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://purl.org/wf4ever/wfdesc> a owl:Ontology ;
+    rdfs:label "Workflow Description Ontology"@en ;
+    rdfs:comment "This ontology describes the structure of a workflow, its processes, and data dependencies."@en ;
+    dc:creator "Khalid Belhajjame" ,
+               "Daniel Garijo" ,
+               "Graham Klyne" ,
+               "Stian Soiland-Reyes" ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    owl:versionInfo "1.0" .
+
+# Classes
+
+wfdesc:Workflow a owl:Class ;
+    rdfs:label "Workflow"@en ;
+    rdfs:comment "A workflow is a directed graph in which nodes represent computational tasks and edges represent data dependencies."@en ;
+    rdfs:subClassOf wfdesc:Process .
+
+wfdesc:Process a owl:Class ;
+    rdfs:label "Process"@en ;
+    rdfs:comment "A process is a unit of computation in a workflow."@en .
+
+wfdesc:Input a owl:Class ;
+    rdfs:label "Input"@en ;
+    rdfs:comment "An input parameter to a process."@en ;
+    rdfs:subClassOf wfdesc:Parameter .
+
+wfdesc:Output a owl:Class ;
+    rdfs:label "Output"@en ;
+    rdfs:comment "An output parameter from a process."@en ;
+    rdfs:subClassOf wfdesc:Parameter .
+
+wfdesc:Parameter a owl:Class ;
+    rdfs:label "Parameter"@en ;
+    rdfs:comment "A parameter (input or output) of a process."@en .
+
+wfdesc:DataLink a owl:Class ;
+    rdfs:label "Data Link"@en ;
+    rdfs:comment "A link between an output and an input, representing data flow."@en .
+
+wfdesc:Configuration a owl:Class ;
+    rdfs:label "Configuration"@en ;
+    rdfs:comment "A configuration parameter for a process."@en ;
+    rdfs:subClassOf wfdesc:Parameter .
+
+# Properties
+
+wfdesc:hasInput a owl:ObjectProperty ;
+    rdfs:label "has input"@en ;
+    rdfs:comment "This process has an input parameter."@en ;
+    rdfs:domain wfdesc:Process ;
+    rdfs:range wfdesc:Input .
+
+wfdesc:hasOutput a owl:ObjectProperty ;
+    rdfs:label "has output"@en ;
+    rdfs:comment "This process has an output parameter."@en ;
+    rdfs:domain wfdesc:Process ;
+    rdfs:range wfdesc:Output .
+
+wfdesc:hasSubProcess a owl:ObjectProperty ;
+    rdfs:label "has sub-process"@en ;
+    rdfs:comment "This workflow contains a sub-process."@en ;
+    rdfs:domain wfdesc:Workflow ;
+    rdfs:range wfdesc:Process .
+
+wfdesc:hasDataLink a owl:ObjectProperty ;
+    rdfs:label "has data link"@en ;
+    rdfs:comment "This workflow has a data link between processes."@en ;
+    rdfs:domain wfdesc:Workflow ;
+    rdfs:range wfdesc:DataLink .
+
+wfdesc:hasSource a owl:ObjectProperty ;
+    rdfs:label "has source"@en ;
+    rdfs:comment "The source output of this data link."@en ;
+    rdfs:domain wfdesc:DataLink ;
+    rdfs:range wfdesc:Output .
+
+wfdesc:hasSink a owl:ObjectProperty ;
+    rdfs:label "has sink"@en ;
+    rdfs:comment "The sink input of this data link."@en ;
+    rdfs:domain wfdesc:DataLink ;
+    rdfs:range wfdesc:Input .

@@ -1,0 +1,30 @@
+{
+  "name": "Research Object Ontology (ro)",
+  "abstract": "The Research Object ontology (ro) provides concepts for bundling and aggregating research artifacts, describing folder structures and annotations.",
+  "status": "under-development",
+  "dateTimeAddition": "2025-11-07T00:00:00Z",
+  "itemClass": "schema",
+  "register": "ogc-wf4ever",
+  "version": "1.0",
+  "dateOfLastChange": "2025-11-07",
+  "sources": [
+    {
+      "title": "Research Object Ontology",
+      "link": "http://purl.org/wf4ever/ro"
+    },
+    {
+      "title": "OAI-ORE",
+      "link": "http://www.openarchives.org/ore/"
+    }
+  ],
+  "maturity": "development",
+  "scope": "unstable",
+  "tags": [
+    "research-object",
+    "ro",
+    "ontology",
+    "wf4ever",
+    "aggregation"
+  ],
+  "group": "Wf4Ever Ontologies"
+}

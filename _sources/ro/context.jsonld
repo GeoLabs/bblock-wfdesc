@@ -1,0 +1,35 @@
+{
+  "@context": {
+    "ro": "http://purl.org/wf4ever/ro#",
+    "ore": "http://www.openarchives.org/ore/terms/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "ResearchObject": "ro:ResearchObject",
+    "Resource": "ro:Resource",
+    "Folder": "ro:Folder",
+    "FolderEntry": "ro:FolderEntry",
+    "AggregatedAnnotation": "ro:AggregatedAnnotation",
+    "Manifest": "ro:Manifest",
+    "name": "rdfs:label",
+    "aggregates": {
+      "@id": "ore:aggregates",
+      "@type": "@id"
+    },
+    "isDescribedBy": {
+      "@id": "ore:isDescribedBy",
+      "@type": "@id"
+    },
+    "annotatesAggregatedResource": {
+      "@id": "ro:annotatesAggregatedResource",
+      "@type": "@id"
+    },
+    "entryName": "ro:entryName",
+    "rootFolder": {
+      "@id": "ro:rootFolder",
+      "@type": "@id"
+    },
+    "manifest": {
+      "@id": "ro:manifest",
+      "@type": "@id"
+    }
+  }
+}

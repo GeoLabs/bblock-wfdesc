@@ -1,4 +1,36 @@
-identifier-prefix: ogc.prov.template.
+identifier-prefix: ogc.bbr.wf4ever.
+
+name: Wf4Ever Research Object and Workflow Ontologies
+
 imports:
   - default
-  - https://ogcincubator.github.io/bblock-prov-schema/build/register.json
+
+abstract: |
+  This register provides Building Blocks for the Wf4Ever ontologies, 
+  enabling semantic description of computational workflows, their execution provenance, 
+  and research object packaging. It includes wfdesc (Workflow Description), 
+  wfprov (Workflow Provenance), and ro (Research Object) ontologies.
+
+description: |
+  The Wf4Ever (Workflow Forever) project developed a comprehensive set of ontologies 
+  for describing computational workflows and research objects. This Building Block provides 
+  JSON-LD contexts and schema definitions to use these concepts in a standardized way.
+  
+  **Key Features:**
+  - Workflow structure description (wfdesc)
+  - Execution provenance tracking (wfprov extending PROV-O)
+  - Research object aggregation and packaging (ro)
+  - Compatible with CWL (Common Workflow Language) provenance
+  
+  **Use Cases:**
+  - Scientific workflow documentation
+  - Reproducibility and provenance tracking
+  - Research data packaging
+  - Workflow discovery and reuse
+
+sparql:
+  push: https://defs-hosted.opengis.net/fuseki-hosted/data
+  graph: https://w3id.org/ogc/ontology/wf4ever/
+  query: https://defs-hosted.opengis.net/fuseki-hosted/query
+  resources:
+    ontologies: true

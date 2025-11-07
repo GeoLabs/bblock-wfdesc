@@ -1,0 +1,50 @@
+"$schema": https://json-schema.org/draft/2020-12/schema
+description: 'Workflow Description schema based on wfdesc ontology'
+type: object
+properties:
+  "@type":
+    oneOf:
+      - type: string
+        enum:
+          - Workflow
+          - Process
+          - Input
+          - Output
+          - Parameter
+          - DataLink
+          - Configuration
+      - type: array
+        items:
+          type: string
+  name:
+    type: string
+    description: Name of the workflow or process
+  description:
+    type: string
+    description: Description of the workflow or process
+  hasInput:
+    type: array
+    items:
+      type: object
+    description: Input parameters
+  hasOutput:
+    type: array
+    items:
+      type: object
+    description: Output parameters
+  hasSubProcess:
+    type: array
+    items:
+      type: object
+    description: Sub-processes within the workflow
+  hasDataLink:
+    type: array
+    items:
+      type: object
+    description: Data flow links
+  hasSource:
+    type: object
+    description: Source output of a data link
+  hasSink:
+    type: object
+    description: Sink input of a data link

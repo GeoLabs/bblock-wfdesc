@@ -1,0 +1,40 @@
+"$schema": https://json-schema.org/draft/2020-12/schema
+description: 'Research Object schema based on ro ontology'
+type: object
+properties:
+  "@type":
+    oneOf:
+      - type: string
+        enum:
+          - ResearchObject
+          - Resource
+          - Folder
+          - FolderEntry
+          - AggregatedAnnotation
+          - Manifest
+      - type: array
+        items:
+          type: string
+  name:
+    type: string
+    description: Name of the resource
+  aggregates:
+    type: array
+    items:
+      type: object
+    description: Resources aggregated
+  rootFolder:
+    type: object
+    description: Root folder
+  entryName:
+    type: string
+    description: Name of folder entry
+  annotatesAggregatedResource:
+    type: object
+    description: Resource being annotated
+  manifest:
+    type: object
+    description: Manifest
+  isDescribedBy:
+    type: object
+    description: Description of resource

@@ -1,0 +1,34 @@
+{
+  "name": "Workflow Provenance Ontology (wfprov)",
+  "abstract": "The Workflow Provenance ontology (wfprov) extends PROV-O to describe workflow execution traces, linking workflow runs to their descriptions.",
+  "status": "under-development",
+  "dateTimeAddition": "2025-11-07T00:00:00Z",
+  "itemClass": "schema",
+  "register": "ogc-wf4ever",
+  "version": "1.0",
+  "dateOfLastChange": "2025-11-07",
+  "sources": [
+    {
+      "title": "Workflow Provenance Ontology",
+      "link": "http://purl.org/wf4ever/wfprov"
+    },
+    {
+      "title": "PROV-O",
+      "link": "https://www.w3.org/TR/prov-o/"
+    }
+  ],
+  "maturity": "development",
+  "scope": "unstable",
+  "dependsOn": [
+    "ogc.bbr.wf4ever.wfdesc"
+  ],
+  "tags": [
+    "workflow",
+    "provenance",
+    "wfprov",
+    "ontology",
+    "wf4ever",
+    "prov"
+  ],
+  "group": "Wf4Ever Ontologies"
+}

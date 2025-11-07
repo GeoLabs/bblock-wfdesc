@@ -1,0 +1,77 @@
+@prefix ro: <http://purl.org/wf4ever/ro#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ore: <http://www.openarchives.org/ore/terms/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://purl.org/wf4ever/ro> a owl:Ontology ;
+    rdfs:label "Research Object Ontology"@en ;
+    rdfs:comment "This ontology describes research objects and their aggregations."@en ;
+    dc:creator "Khalid Belhajjame" ,
+               "Daniel Garijo" ,
+               "Graham Klyne" ,
+               "Stian Soiland-Reyes" ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    owl:imports <http://www.openarchives.org/ore/terms/> ;
+    owl:versionInfo "1.0" .
+
+# Classes
+
+ro:ResearchObject a owl:Class ;
+    rdfs:label "Research Object"@en ;
+    rdfs:comment "A research object that aggregates related resources."@en ;
+    rdfs:subClassOf ore:Aggregation .
+
+ro:Resource a owl:Class ;
+    rdfs:label "Resource"@en ;
+    rdfs:comment "A resource that can be part of a research object."@en .
+
+ro:Folder a owl:Class ;
+    rdfs:label "Folder"@en ;
+    rdfs:comment "A folder that can contain other resources."@en ;
+    rdfs:subClassOf ro:Resource ,
+                    ore:Aggregation .
+
+ro:FolderEntry a owl:Class ;
+    rdfs:label "Folder Entry"@en ;
+    rdfs:comment "An entry in a folder, linking to a resource."@en ;
+    rdfs:subClassOf ore:Proxy .
+
+ro:AggregatedAnnotation a owl:Class ;
+    rdfs:label "Aggregated Annotation"@en ;
+    rdfs:comment "An annotation about a resource in a research object."@en ;
+    rdfs:subClassOf ro:Resource .
+
+ro:Manifest a owl:Class ;
+    rdfs:label "Manifest"@en ;
+    rdfs:comment "A manifest describing the contents of a research object."@en ;
+    rdfs:subClassOf ro:Resource .
+
+# Properties
+
+ro:rootFolder a owl:ObjectProperty ;
+    rdfs:label "root folder"@en ;
+    rdfs:comment "The root folder of a research object."@en ;
+    rdfs:domain ro:ResearchObject ;
+    rdfs:range ro:Folder .
+
+ro:entryName a owl:DatatypeProperty ;
+    rdfs:label "entry name"@en ;
+    rdfs:comment "The name of a folder entry."@en ;
+    rdfs:domain ro:FolderEntry ;
+    rdfs:range xsd:string .
+
+ro:annotatesAggregatedResource a owl:ObjectProperty ;
+    rdfs:label "annotates aggregated resource"@en ;
+    rdfs:comment "Links an annotation to the resource it annotates."@en ;
+    rdfs:domain ro:AggregatedAnnotation ;
+    rdfs:range ro:Resource .
+
+ro:manifest a owl:ObjectProperty ;
+    rdfs:label "manifest"@en ;
+    rdfs:comment "Links a research object to its manifest."@en ;
+    rdfs:domain ro:ResearchObject ;
+    rdfs:range ro:Manifest .

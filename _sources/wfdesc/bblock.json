@@ -1,0 +1,25 @@
+{
+  "name": "Workflow Description Ontology (wfdesc)",
+  "abstract": "The Workflow Description ontology (wfdesc) describes the structure of workflows, including processes, inputs, outputs, and data flow.",
+  "status": "under-development",
+  "dateTimeAddition": "2025-11-07T00:00:00Z",
+  "itemClass": "schema",
+  "register": "ogc-wf4ever",
+  "version": "1.0",
+  "dateOfLastChange": "2025-11-07",
+  "sources": [
+    {
+      "title": "Workflow Description Ontology",
+      "link": "http://purl.org/wf4ever/wfdesc"
+    }
+  ],
+  "maturity": "development",
+  "scope": "unstable",
+  "tags": [
+    "workflow",
+    "wfdesc",
+    "ontology",
+    "wf4ever"
+  ],
+  "group": "Wf4Ever Ontologies"
+}

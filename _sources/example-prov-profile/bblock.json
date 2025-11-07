@@ -1,16 +1,43 @@
 {
-  "name": "Provenance Profile",
-  "abstract": "This is a template for creating a customised profile of the PROV schema building block.",
+  "name": "Wf4Ever Research Object and Workflow Ontologies",
+  "highlighted": true,
+  "abstract": "This building block provides access to the Wf4Ever ontologies for describing scientific workflows, their provenance, and research objects. It includes wfdesc (Workflow Description), wfprov (Workflow Provenance), and ro (Research Object) ontologies.",
   "status": "under-development",
-  "dateTimeAddition": "2023-04-05T00:00:00Z",
+  "dateTimeAddition": "2025-11-07T00:00:00Z",
   "itemClass": "schema",
-  "register": "ogc-building-block-register",
-  "version": "0.1",
-  "dateOfLastChange": "2023-04-05",
-  "link": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/slate-build/ogc-utils/prov/",
+  "register": "ogc-wf4ever-ontology",
+  "version": "1.0",
+  "dateOfLastChange": "2025-11-07",
   "sources": [
+    {
+      "title": "Wf4Ever Workflow Description Ontology",
+      "link": "http://purl.org/wf4ever/wfdesc"
+    },
+    {
+      "title": "Wf4Ever Workflow Provenance Ontology",
+      "link": "http://purl.org/wf4ever/wfprov"
+    },
+    {
+      "title": "Wf4Ever Research Object Ontology",
+      "link": "http://purl.org/wf4ever/ro"
+    },
+    {
+      "title": "Wf4Ever Research Object Model",
+      "link": "https://w3id.org/ro/"
+    }
   ],
-  "maturity": "under-development",
+  "maturity": "development",
   "scope": "unstable",
-  "tags": ["templates", "provenance", "profile"]
+  "dependsOn": [],
+  "tags": [
+    "ontology",
+    "workflow",
+    "wfdesc",
+    "wfprov",
+    "research-object",
+    "provenance",
+    "wf4ever",
+    "cwl"
+  ],
+  "group": "Ontology"
 }

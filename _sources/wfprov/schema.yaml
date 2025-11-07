@@ -1,0 +1,47 @@
+"$schema": https://json-schema.org/draft/2020-12/schema
+description: 'Workflow Provenance schema based on wfprov ontology'
+type: object
+properties:
+  "@type":
+    oneOf:
+      - type: string
+        enum:
+          - WorkflowRun
+          - ProcessRun
+          - WorkflowEngine
+          - Artifact
+      - type: array
+        items:
+          type: string
+  name:
+    type: string
+    description: Name of the run or artifact
+  describedByWorkflow:
+    type: object
+    description: Links workflow run to its description
+  describedByProcess:
+    type: object
+    description: Links process run to its description
+  wasPartOfWorkflowRun:
+    type: object
+    description: Links process run to workflow run
+  usedInput:
+    type: array
+    items:
+      type: object
+    description: Input artifacts used
+  wasOutputFrom:
+    type: array
+    items:
+      type: object
+    description: Output artifacts generated
+  wasAssociatedWith:
+    type: array
+    items:
+      type: object
+    description: Agents associated with execution
+  wasEnactedBy:
+    type: object
+    description: Workflow engine that executed the run
+  value:
+    description: Value of an artifact or parameter

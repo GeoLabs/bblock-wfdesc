@@ -1,19 +1,108 @@
-## Provenance profile
+# Wf4Ever Research Object and Workflow Ontologies
 
-This is a profile of the JSON schema for PROV-O.
+This building block provides access to the Wf4Ever ontologies for describing scientific workflows, their provenance, and research objects.
 
-> This demonstrates inheritance of the JSON-LD binding from the schema to the PROV-O ontology.
+## Overview
 
-The template provides for a sample profile that extends the underlying provenance model through:
-- defining specific Entity and Activity types
-- adds example metadata attributes for provenance classes
-- defines a SHACL rule for checking presence of specific types
+The Wf4Ever (Workflow Forever) project developed a comprehensive set of ontologies for describing computational workflows and research objects. This building block integrates three core ontologies:
 
-## components
+### 1. wfdesc - Workflow Description Ontology
 
-under a building block directory _/example-prov-profile:
-- schema.yaml extends the [base](https://ogcincubator.github.io/bblock-prov-schema) and shows how to define additional schema elements
-- context.jsonld defines URI bindings for customisations and bases for keywords (e.g. activity and entity types)
-- rules.shacl defines logical consistency rules for the profile (what types of activities etc.)
+The Workflow Description ontology provides a vocabulary for describing:
+- Workflow structures and processes
+- Workflow inputs and outputs
+- Data and parameter flow
+- Workflow artifacts and configurations
 
-Note that compliance with general PROV patterns is handled by inheritance of SHACL rules from the base profile.
+**Namespace**: `http://purl.org/wf4ever/wfdesc#`
+
+### 2. wfprov - Workflow Provenance Ontology
+
+The Workflow Provenance ontology extends PROV-O to describe:
+- Workflow execution traces
+- Process runs and their artifacts
+- Workflow engines and their activities
+- Relationships between workflow descriptions and their executions
+
+**Namespace**: `http://purl.org/wf4ever/wfprov#`
+
+### 3. ro - Research Object Ontology
+
+The Research Object ontology provides concepts for:
+- Bundling related resources
+- Aggregating research artifacts
+- Annotating resources
+- Describing folder structures
+
+**Namespace**: `http://purl.org/wf4ever/ro#`
+
+## Purpose
+
+These ontologies enable comprehensive semantic description of computational workflows and their execution provenance, allowing for:
+- Better workflow discovery and reuse
+- Provenance tracking and reproducibility
+- Research object packaging and sharing
+- Integration with PROV-O standard
+
+## Key Concepts
+
+### Workflow Description (wfdesc)
+
+**Classes:**
+- **Workflow**: A directed graph of computational tasks
+- **Process**: A unit of computation
+- **Input/Output**: Parameters of a process
+- **DataLink**: Connection between outputs and inputs
+
+**Properties:**
+- `hasInput`, `hasOutput`: Process parameters
+- `hasSubProcess`: Workflow composition
+- `hasDataLink`: Data flow
+- `hasSource`, `hasSink`: DataLink endpoints
+
+### Workflow Provenance (wfprov)
+
+**Classes:**
+- **WorkflowRun**: An execution of a workflow
+- **ProcessRun**: An execution of a process
+- **WorkflowEngine**: Software executing workflows
+- **Artifact**: Data entities used/produced
+
+**Properties:**
+- `wasPartOfWorkflowRun`: Links process runs to workflow runs
+- `usedInput`: Input artifacts used
+- `wasOutputFrom`: Output artifacts generated
+- `describedByWorkflow`: Links execution to description
+- `describedByProcess`: Links process run to process
+
+### Research Object (ro)
+
+**Classes:**
+- **ResearchObject**: A bundled collection of resources
+- **Resource**: Any research artifact
+- **Folder**: Directory structure
+- **FolderEntry**: Entry in a folder
+- **AggregatedAnnotation**: Annotation about resources
+
+**Properties:**
+- `aggregates`: Resources in the research object
+- `rootFolder`: Main folder
+- `entryName`: Name of folder entry
+- `annotatesAggregatedResource`: Annotation target
+
+## Usage
+
+This building block is designed for use with:
+- **CWL (Common Workflow Language)** provenance
+- Scientific workflow systems
+- Research data packaging
+- Reproducibility frameworks
+
+### Example Use Case
+
+The building block can describe a complete workflow execution including:
+1. The workflow definition (wfdesc)
+2. The execution trace (wfprov)
+3. The packaged research object containing inputs, outputs, and provenance (ro)
+
+See the examples section for a complete representation based on a real CWL workflow execution.
