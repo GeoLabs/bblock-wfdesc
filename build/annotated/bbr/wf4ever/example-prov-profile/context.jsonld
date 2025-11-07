@@ -1,0 +1,92 @@
+{
+  "@context": {
+    "Workflow": "wfdesc:Workflow",
+    "Process": "wfdesc:Process",
+    "WorkflowInstance": "wfdesc:WorkflowInstance",
+    "Input": "wfdesc:Input",
+    "Output": "wfdesc:Output",
+    "Parameter": "wfdesc:Parameter",
+    "DataLink": "wfdesc:DataLink",
+    "Artifact": "wfprov:Artifact",
+    "Configuration": "wfdesc:Configuration",
+    "WorkflowEngine": "wfprov:WorkflowEngine",
+    "WorkflowRun": "wfprov:WorkflowRun",
+    "ProcessRun": "wfprov:ProcessRun",
+    "ResearchObject": "ro:ResearchObject",
+    "Resource": "ro:Resource",
+    "AggregatedAnnotation": "ro:AggregatedAnnotation",
+    "Folder": "ro:Folder",
+    "FolderEntry": "ro:FolderEntry",
+    "name": "rdfs:label",
+    "description": "rdfs:comment",
+    "hasInput": {
+      "@id": "wfdesc:hasInput",
+      "@type": "@id"
+    },
+    "hasOutput": {
+      "@id": "wfdesc:hasOutput",
+      "@type": "@id"
+    },
+    "hasSubProcess": {
+      "@id": "wfdesc:hasSubProcess",
+      "@type": "@id"
+    },
+    "hasDataLink": {
+      "@id": "wfdesc:hasDataLink",
+      "@type": "@id"
+    },
+    "hasSource": {
+      "@id": "wfdesc:hasSource",
+      "@type": "@id"
+    },
+    "hasSink": {
+      "@id": "wfdesc:hasSink",
+      "@type": "@id"
+    },
+    "describedByWorkflow": {
+      "@id": "wfprov:describedByWorkflow",
+      "@type": "@id"
+    },
+    "describedByProcess": {
+      "@id": "wfprov:describedByProcess",
+      "@type": "@id"
+    },
+    "wasPartOfWorkflowRun": {
+      "@id": "wfprov:wasPartOfWorkflowRun",
+      "@type": "@id"
+    },
+    "usedInput": {
+      "@id": "wfprov:usedInput",
+      "@type": "@id"
+    },
+    "wasOutputFrom": {
+      "@id": "wfprov:wasOutputFrom",
+      "@type": "@id"
+    },
+    "aggregates": {
+      "@id": "ore:aggregates",
+      "@type": "@id"
+    },
+    "rootFolder": {
+      "@id": "ro:rootFolder",
+      "@type": "@id"
+    },
+    "entryName": "ro:entryName",
+    "annotatesAggregatedResource": {
+      "@id": "ro:annotatesAggregatedResource",
+      "@type": "@id"
+    },
+    "isDescribedBy": {
+      "@id": "ore:isDescribedBy",
+      "@type": "@id"
+    },
+    "wfdesc": "http://purl.org/wf4ever/wfdesc#",
+    "wfprov": "http://purl.org/wf4ever/wfprov#",
+    "ro": "http://purl.org/wf4ever/ro#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "ore": "http://www.openarchives.org/ore/terms/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "cwlprov": "https://w3id.org/cwl/prov#",
+    "@version": 1.1
+  }
+}

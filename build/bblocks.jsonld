@@ -1,121 +1,403 @@
 {
-  "@context": {
-    "bblocks": "https://www.opengis.net/def/bblocks/",
-    "@base": "https://www.opengis.net/def/bblocks/",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "dct": "http://purl.org/dc/terms/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "itemIdentifier": "@id",
-    "name": "rdfs:label",
-    "abstract": "dct:abstract",
-    "status": {
-      "@id": "bblocks:status",
-      "@type": "@id",
-      "@context": {
-        "@base": "http://www.opengis.net/def/status/"
+  "@context": [
+    {
+      "@base": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined"
+    },
+    {
+      "bblocks": "https://www.opengis.net/def/bblocks/",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "dct": "http://purl.org/dc/terms/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "prof": "http://www.w3.org/ns/dx/prof/",
+      "dcat": "http://www.w3.org/ns/dcat#",
+      "modspec": "http://www.opengis.net/def/ont/modspec/",
+      "itemIdentifier": "@id",
+      "baseURL": "@id",
+      "name": "rdfs:label",
+      "abstract": {
+        "@id": "dct:abstract",
+        "@type": "https://www.w3.org/ns/iana/media-types/text/markdown"
+      },
+      "description": {
+        "@id": "dct:description",
+        "@type": "https://www.w3.org/ns/iana/media-types/text/markdown"
+      },
+      "status": {
+        "@id": "bblocks:status",
+        "@type": "@id",
+        "@context": {
+          "@base": "http://www.opengis.net/def/status/"
+        }
+      },
+      "dateTimeAddition": {
+        "@id": "dct:created",
+        "@type": "xsd:dateTime"
+      },
+      "version": "dct:hasVersion",
+      "dateOfLastChange": {
+        "@id": "dct:modified",
+        "@type": "xsd:date"
+      },
+      "scope": {
+        "@id": "bblocks:scope",
+        "@type": "@id",
+        "@context": {
+          "@base": "http://www.opengis.net/def/bblocks/scope/"
+        }
+      },
+      "sources": {
+        "@id": "dct:source",
+        "@context": {
+          "title": "rdfs:label",
+          "link": "@id"
+        }
+      },
+      "schema": {
+        "@id": "bblocks:hasSchema",
+        "@type": "@id",
+        "@container": "@index",
+        "@index": "dct:format"
+      },
+      "ldContext": {
+        "@id": "bblocks:hasJsonLdContext",
+        "@type": "@id"
+      },
+      "sourceLdContext": {
+        "@id": "bblocks:hasSourceJsonLdContext",
+        "@type": "@id"
+      },
+      "documentation": {
+        "@id": "dct:description",
+        "@type": "@id",
+        "@container": "@index",
+        "@index": "dct:identifier",
+        "@context": {
+          "mediatype": "dct:format",
+          "url": "rdfs:isDefinedBy"
+        }
+      },
+      "hasConcepts": {
+        "@reverse": "skos:inScheme"
+      },
+      "dependsOn": {
+        "@id": "bblocks:dependsOn",
+        "@type": "@id"
+      },
+      "profileOf": {
+        "@id": "prof:isProfileOf",
+        "@type": "@id"
+      },
+      "tags": "dcat:keyword",
+      "shaclShapes": {
+        "@id": "bblocks:hasShaclRule",
+        "@type": "@id",
+        "@container": "@index",
+        "@index": "rdfs:seeAlso"
+      },
+      "validationReport": {
+        "@id": "bblocks:hasValidationReport",
+        "@type": "@id"
+      },
+      "imports": {
+        "@id": "bblocks:imports",
+        "@type": "@id"
+      },
+      "conformanceClasses": {
+        "@id": "modspec:class",
+        "@type": "@id"
       }
-    },
-    "dateTimeAddition": {
-      "@id": "dct:created",
-      "@type": "xsd:dateTime"
-    },
-    "version": "dct:hasVersion",
-    "dateOfLastChange": {
-      "@id": "dct:modified",
-      "@type": "xsd:date"
-    },
-    "scope": {
-      "@id": "bblocks:scope",
-      "@type": "@id",
-      "@context": {
-        "@base": "http://www.opengis.net/def/bblocks/scope/"
-      }
-    },
-    "sources": {
-      "@id": "dct:source",
-      "@context": {
-        "title": "rdfs:label",
-        "link": "@id"
-      }
-    },
-    "schema": {
-      "@id": "bblocks:hasSchema",
-      "@type": "@id",
-      "@container": "@index",
-      "@index": "dct:format"
-    },
-    "ldContext": {
-      "@id": "bblocks:hasJsonLdContext",
-      "@type": "@id"
-    },
-    "documentation": {
-      "@id": "dct:description",
-      "@type": "@id",
-      "@container": "@index",
-      "@index": "dct:identifier",
-      "@context": {
-        "mediatype": "dct:format",
-        "url": "rdfs:isDefinedBy"
-      }
-    },
-    "hasConcepts": {
-      "@reverse": "skos:inScheme"
-    },
-    "dependsOn": {
-      "@id": "bblocks:dependsOn",
-      "@type": "@id"
+    }
+  ],
+  "name": "Building Blocks - Wf4Ever Research Object and Workflow Ontologies",
+  "abstract": "This register provides Building Blocks for the Wf4Ever ontologies, \nenabling semantic description of computational workflows, their execution provenance, \nand research object packaging. It includes wfdesc (Workflow Description), \nwfprov (Workflow Provenance), and ro (Research Object) ontologies.\n",
+  "description": "The Wf4Ever (Workflow Forever) project developed a comprehensive set of ontologies \nfor describing computational workflows and research objects. This Building Block provides \nJSON-LD contexts and schema definitions to use these concepts in a standardized way.\n\n**Key Features:**\n- Workflow structure description (wfdesc)\n- Execution provenance tracking (wfprov extending PROV-O)\n- Research object aggregation and packaging (ro)\n- Compatible with CWL (Common Workflow Language) provenance\n\n**Use Cases:**\n- Scientific workflow documentation\n- Reproducibility and provenance tracking\n- Research data packaging\n- Workflow discovery and reuse\n",
+  "sparqlEndpoint": "https://defs-hosted.opengis.net/fuseki-hosted/query",
+  "modified": "2025-11-07T00:16:47.715918",
+  "tooling": {
+    "bblocks-postprocess": {
+      "commitId": "\"ce6b2c78a47c380d461f9254868929c547c106e4",
+      "shortCommitId": "\"ce6b2c",
+      "date": "2025-11-04T11:34:14+00:00\""
     }
   },
-  "@id": "https://www.opengis.net/def/bblocks",
-  "@type": "skos:ConceptScheme",
-  "skos:prefLabel": "OGC Building Blocks Register",
+  "gitRepository": "https://github.com/GeoLabs/bblock-wfdesc",
+  "gitHubRepository": "https://github.com/GeoLabs/bblock-wfdesc/blob/master/",
+  "baseURL": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/",
+  "viewerURL": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/",
+  "validationReport": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/tests/report.html",
+  "imports": [
+    "https://opengeospatial.github.io/bblocks/register.json"
+  ],
+  "remoteCacheDir": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/annotated/_cache",
+  "@type": [
+    "skos:ConceptScheme",
+    "dcat:Catalog"
+  ],
+  "skos:prefLabel": "Building Blocks - Wf4Ever Research Object and Workflow Ontologies",
   "hasConcepts": [
     {
-      "itemIdentifier": "ogc.prov.template.example-prov-profile",
-      "name": "Provenance Profile",
-      "abstract": "This is a template for creating a customised profile of the PROV schema building block.",
+      "itemIdentifier": "ogc.bbr.wf4ever.example-prov-profile",
+      "name": "Wf4Ever Research Object and Workflow Ontologies",
+      "highlighted": true,
+      "abstract": "This building block provides access to the Wf4Ever ontologies for describing scientific workflows, their provenance, and research objects. It includes wfdesc (Workflow Description), wfprov (Workflow Provenance), and ro (Research Object) ontologies.",
       "status": "under-development",
-      "dateTimeAddition": "2023-04-05T00:00:00Z",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
       "itemClass": "schema",
-      "register": "ogc-building-block-register",
-      "version": "0.1",
-      "dateOfLastChange": "2023-04-05",
-      "link": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/slate-build/ogc-utils/prov/",
-      "sources": [],
-      "maturity": "under-development",
-      "scope": "unstable",
-      "tags": [
-        "templates",
-        "provenance",
-        "profile"
+      "register": "ogc-wf4ever-ontology",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-07",
+      "sources": [
+        {
+          "title": "Wf4Ever Workflow Description Ontology",
+          "link": "http://purl.org/wf4ever/wfdesc"
+        },
+        {
+          "title": "Wf4Ever Workflow Provenance Ontology",
+          "link": "http://purl.org/wf4ever/wfprov"
+        },
+        {
+          "title": "Wf4Ever Research Object Ontology",
+          "link": "http://purl.org/wf4ever/ro"
+        },
+        {
+          "title": "Wf4Ever Research Object Model",
+          "link": "https://w3id.org/ro/"
+        }
       ],
-      "shaclRules": [],
+      "maturity": "development",
+      "scope": "unstable",
+      "dependsOn": [],
+      "tags": [
+        "ontology",
+        "workflow",
+        "wfdesc",
+        "wfprov",
+        "research-object",
+        "provenance",
+        "wf4ever",
+        "cwl"
+      ],
+      "group": "Ontology",
+      "shaclShapes": {},
+      "ldContext": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/annotated/bbr/wf4ever/example-prov-profile/context.jsonld",
+      "ontology": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/annotated/bbr/wf4ever/example-prov-profile/ontology.ttl",
       "schema": {
-        "application/yaml": "https://raw.githubusercontent.com/ogcincubator/prov-profile-template/master/build/annotated/prov/template/example-prov-profile/schema.yaml",
-        "application/json": "https://raw.githubusercontent.com/ogcincubator/prov-profile-template/master/build/annotated/prov/template/example-prov-profile/schema.json"
+        "application/yaml": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/annotated/bbr/wf4ever/example-prov-profile/schema.yaml",
+        "application/json": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/annotated/bbr/wf4ever/example-prov-profile/schema.json"
       },
-      "ldContext": "https://raw.githubusercontent.com/ogcincubator/prov-profile-template/master/build/annotated/prov/template/example-prov-profile/context.jsonld",
-      "sourceFiles": "https://raw.githubusercontent.com/ogcincubator/prov-profile-template/master/_sources/example-prov-profile/",
+      "sourceSchema": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/_sources/example-prov-profile/schema.yaml",
+      "sourceLdContext": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/_sources/example-prov-profile/context.jsonld",
+      "sourceFiles": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/_sources/example-prov-profile/",
+      "rdfData": [],
       "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/prov-profile-template/blob/master/build/tests/prov/template/example-prov-profile/",
+      "testOutputs": "https://github.com/GeoLabs/bblock-wfdesc/blob/master/build/tests/bbr/wf4ever/example-prov-profile/",
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://raw.githubusercontent.com/ogcincubator/prov-profile-template/master/build/generateddocs/markdown/prov/template/example-prov-profile/index.md"
+          "url": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/generateddocs/markdown/bbr/wf4ever/example-prov-profile/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://raw.githubusercontent.com/ogcincubator/prov-profile-template/master/build/generateddocs/json-full/prov/template/example-prov-profile/index.json"
+          "url": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/generateddocs/json-full/bbr/wf4ever/example-prov-profile/index.json"
         },
-        "slate": {
+        "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://raw.githubusercontent.com/ogcincubator/prov-profile-template/master/build/generateddocs/slate-build/prov/template/example-prov-profile/"
+          "url": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/bblock/ogc.bbr.wf4ever.example-prov-profile"
         }
       },
       "@type": [
         "bblocks:Schema",
-        "skos:Concept"
+        "skos:Concept",
+        "dcat:Dataset"
+      ]
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.ro",
+      "name": "Research Object Ontology (ro)",
+      "abstract": "The Research Object ontology (ro) provides concepts for bundling and aggregating research artifacts, describing folder structures and annotations.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "schema",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-07",
+      "sources": [
+        {
+          "title": "Research Object Ontology",
+          "link": "http://purl.org/wf4ever/ro"
+        },
+        {
+          "title": "OAI-ORE",
+          "link": "http://www.openarchives.org/ore/"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "tags": [
+        "research-object",
+        "ro",
+        "ontology",
+        "wf4ever",
+        "aggregation"
+      ],
+      "group": "Wf4Ever Ontologies",
+      "shaclShapes": {},
+      "ldContext": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/annotated/bbr/wf4ever/ro/context.jsonld",
+      "ontology": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/annotated/bbr/wf4ever/ro/ontology.ttl",
+      "schema": {
+        "application/yaml": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/annotated/bbr/wf4ever/ro/schema.yaml",
+        "application/json": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/annotated/bbr/wf4ever/ro/schema.json"
+      },
+      "sourceSchema": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/_sources/ro/schema.yaml",
+      "sourceLdContext": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/_sources/ro/context.jsonld",
+      "sourceFiles": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/_sources/ro/",
+      "rdfData": [],
+      "validationPassed": true,
+      "testOutputs": "https://github.com/GeoLabs/bblock-wfdesc/blob/master/build/tests/bbr/wf4ever/ro/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/generateddocs/markdown/bbr/wf4ever/ro/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/generateddocs/json-full/bbr/wf4ever/ro/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/bblock/ogc.bbr.wf4ever.ro"
+        }
+      },
+      "@type": [
+        "bblocks:Schema",
+        "skos:Concept",
+        "dcat:Dataset"
+      ]
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wfdesc",
+      "name": "Workflow Description Ontology (wfdesc)",
+      "abstract": "The Workflow Description ontology (wfdesc) describes the structure of workflows, including processes, inputs, outputs, and data flow.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "schema",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-07",
+      "sources": [
+        {
+          "title": "Workflow Description Ontology",
+          "link": "http://purl.org/wf4ever/wfdesc"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "tags": [
+        "workflow",
+        "wfdesc",
+        "ontology",
+        "wf4ever"
+      ],
+      "group": "Wf4Ever Ontologies",
+      "shaclShapes": {},
+      "ldContext": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/annotated/bbr/wf4ever/wfdesc/context.jsonld",
+      "ontology": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/annotated/bbr/wf4ever/wfdesc/ontology.ttl",
+      "schema": {
+        "application/yaml": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/annotated/bbr/wf4ever/wfdesc/schema.yaml",
+        "application/json": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/annotated/bbr/wf4ever/wfdesc/schema.json"
+      },
+      "sourceSchema": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/_sources/wfdesc/schema.yaml",
+      "sourceLdContext": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/_sources/wfdesc/context.jsonld",
+      "sourceFiles": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/_sources/wfdesc/",
+      "rdfData": [],
+      "validationPassed": true,
+      "testOutputs": "https://github.com/GeoLabs/bblock-wfdesc/blob/master/build/tests/bbr/wf4ever/wfdesc/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/generateddocs/markdown/bbr/wf4ever/wfdesc/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/generateddocs/json-full/bbr/wf4ever/wfdesc/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/bblock/ogc.bbr.wf4ever.wfdesc"
+        }
+      },
+      "@type": [
+        "bblocks:Schema",
+        "skos:Concept",
+        "dcat:Dataset"
+      ]
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wfprov",
+      "name": "Workflow Provenance Ontology (wfprov)",
+      "abstract": "The Workflow Provenance ontology (wfprov) extends PROV-O to describe workflow execution traces, linking workflow runs to their descriptions.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "schema",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-07",
+      "sources": [
+        {
+          "title": "Workflow Provenance Ontology",
+          "link": "http://purl.org/wf4ever/wfprov"
+        },
+        {
+          "title": "PROV-O",
+          "link": "https://www.w3.org/TR/prov-o/"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "dependsOn": [
+        "ogc.bbr.wf4ever.wfdesc"
+      ],
+      "tags": [
+        "workflow",
+        "provenance",
+        "wfprov",
+        "ontology",
+        "wf4ever",
+        "prov"
+      ],
+      "group": "Wf4Ever Ontologies",
+      "shaclShapes": {},
+      "ldContext": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/annotated/bbr/wf4ever/wfprov/context.jsonld",
+      "ontology": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/annotated/bbr/wf4ever/wfprov/ontology.ttl",
+      "schema": {
+        "application/yaml": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/annotated/bbr/wf4ever/wfprov/schema.yaml",
+        "application/json": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/annotated/bbr/wf4ever/wfprov/schema.json"
+      },
+      "sourceSchema": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/_sources/wfprov/schema.yaml",
+      "sourceLdContext": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/_sources/wfprov/context.jsonld",
+      "sourceFiles": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/_sources/wfprov/",
+      "rdfData": [],
+      "validationPassed": true,
+      "testOutputs": "https://github.com/GeoLabs/bblock-wfdesc/blob/master/build/tests/bbr/wf4ever/wfprov/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/generateddocs/markdown/bbr/wf4ever/wfprov/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/generateddocs/json-full/bbr/wf4ever/wfprov/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/bblock/ogc.bbr.wf4ever.wfprov"
+        }
+      },
+      "@type": [
+        "bblocks:Schema",
+        "skos:Concept",
+        "dcat:Dataset"
       ]
     }
   ]

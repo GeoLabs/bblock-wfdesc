@@ -1,0 +1,81 @@
+{
+  "@context": "https://raw.githubusercontent.com/GeoLabs/bblock-wfdesc/undefined/build/annotated/bbr/wf4ever/example-prov-profile/context.jsonld",
+  "@id": "urn:uuid:f02b8997-a6b1-4909-9946-9129c2b3f10c",
+  "@type": "WorkflowRun",
+  "name": "Run of mangrove analysis workflow",
+  "describedByWorkflow": {
+    "@id": "arcp://uuid,f02b8997-a6b1-4909-9946-9129c2b3f10c/workflow/packed.cwl#main",
+    "@type": [
+      "Workflow",
+      "Process"
+    ],
+    "name": "Prospective provenance"
+  },
+  "wasAssociatedWith": [
+    {
+      "@id": "urn:uuid:5b925446-32a4-4104-9724-fa7360e1ef60",
+      "@type": "WorkflowEngine",
+      "name": "cwltool 3.1.20251031082601"
+    }
+  ],
+  "usedInput": [
+    {
+      "@type": "Artifact",
+      "@id": "urn:uuid:192e18cb-9182-4147-ad13-03076e7a3b3d",
+      "name": "cloud_cover_max",
+      "value": 20.0
+    },
+    {
+      "@type": "Artifact",
+      "@id": "urn:uuid:91b4ec49-d11a-4407-9685-032bf7e95258",
+      "name": "days_back",
+      "value": 90
+    },
+    {
+      "@type": "Artifact",
+      "@id": "urn:hash::sha1:e71003c6b7dd4093ce139ac0c51a6ba38d54a439",
+      "name": "output_dir",
+      "value": "outputs"
+    }
+  ],
+  "wasOutputFrom": [
+    {
+      "@id": "urn:uuid:83c8708e-ccbd-494e-b939-1298b65b1539",
+      "@type": [
+        "Folder",
+        "Artifact"
+      ],
+      "name": "outputs",
+      "aggregates": [
+        {
+          "@type": "FolderEntry",
+          "entryName": "catalog.json",
+          "@id": "urn:uuid:4d15cb37-a4a3-4170-a7aa-529399cb4753"
+        },
+        {
+          "@type": "FolderEntry",
+          "entryName": "mangrove-analysis-20251103-151416",
+          "@id": "urn:uuid:f1477d81-2d56-4874-9d5b-eb5de2a571af",
+          "aggregates": [
+            {
+              "@type": "FolderEntry",
+              "entryName": "mangrove_mask.tif"
+            },
+            {
+              "@type": "FolderEntry",
+              "entryName": "biomass_summary.csv"
+            },
+            {
+              "@type": "FolderEntry",
+              "entryName": "carbon_summary.csv"
+            },
+            {
+              "@type": "FolderEntry",
+              "entryName": "mangrove-analysis-20251103-151416.json"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

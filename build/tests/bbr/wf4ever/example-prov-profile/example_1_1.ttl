@@ -1,0 +1,47 @@
+@prefix ore: <http://www.openarchives.org/ore/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ro: <http://purl.org/wf4ever/ro#> .
+@prefix wfdesc: <http://purl.org/wf4ever/wfdesc#> .
+@prefix wfprov: <http://purl.org/wf4ever/wfprov#> .
+
+<urn:uuid:f02b8997-a6b1-4909-9946-9129c2b3f10c> a wfprov:WorkflowRun ;
+    rdfs:label "Run of mangrove analysis workflow" ;
+    wfprov:describedByWorkflow <arcp://uuid,f02b8997-a6b1-4909-9946-9129c2b3f10c/workflow/packed.cwl#main> ;
+    wfprov:usedInput <urn:hash::sha1:e71003c6b7dd4093ce139ac0c51a6ba38d54a439>,
+        <urn:uuid:192e18cb-9182-4147-ad13-03076e7a3b3d>,
+        <urn:uuid:91b4ec49-d11a-4407-9685-032bf7e95258> ;
+    wfprov:wasOutputFrom <urn:uuid:83c8708e-ccbd-494e-b939-1298b65b1539> .
+
+<arcp://uuid,f02b8997-a6b1-4909-9946-9129c2b3f10c/workflow/packed.cwl#main> a wfdesc:Process,
+        wfdesc:Workflow ;
+    rdfs:label "Prospective provenance" .
+
+<urn:hash::sha1:e71003c6b7dd4093ce139ac0c51a6ba38d54a439> a wfprov:Artifact ;
+    rdfs:label "output_dir" .
+
+<urn:uuid:192e18cb-9182-4147-ad13-03076e7a3b3d> a wfprov:Artifact ;
+    rdfs:label "cloud_cover_max" .
+
+<urn:uuid:4d15cb37-a4a3-4170-a7aa-529399cb4753> a ro:FolderEntry ;
+    ro:entryName "catalog.json" .
+
+<urn:uuid:83c8708e-ccbd-494e-b939-1298b65b1539> a ro:Folder,
+        wfprov:Artifact ;
+    rdfs:label "outputs" ;
+    ore:aggregates <urn:uuid:4d15cb37-a4a3-4170-a7aa-529399cb4753>,
+        <urn:uuid:f1477d81-2d56-4874-9d5b-eb5de2a571af> .
+
+<urn:uuid:91b4ec49-d11a-4407-9685-032bf7e95258> a wfprov:Artifact ;
+    rdfs:label "days_back" .
+
+<urn:uuid:f1477d81-2d56-4874-9d5b-eb5de2a571af> a ro:FolderEntry ;
+    ro:entryName "mangrove-analysis-20251103-151416" ;
+    ore:aggregates [ a ro:FolderEntry ;
+            ro:entryName "mangrove_mask.tif" ],
+        [ a ro:FolderEntry ;
+            ro:entryName "carbon_summary.csv" ],
+        [ a ro:FolderEntry ;
+            ro:entryName "biomass_summary.csv" ],
+        [ a ro:FolderEntry ;
+            ro:entryName "mangrove-analysis-20251103-151416.json" ] .
+

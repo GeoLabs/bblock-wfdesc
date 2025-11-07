@@ -1,0 +1,166 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+description: Workflow Description, Provenance and Research Object schema based on
+  wfdesc, wfprov and ro ontologies
+type: object
+properties:
+  '@type':
+    oneOf:
+    - type: string
+      enum:
+      - Workflow
+      - Process
+      - Input
+      - Output
+      - Parameter
+      - DataLink
+      - Configuration
+      - WorkflowRun
+      - ProcessRun
+      - WorkflowEngine
+      - Artifact
+      - ResearchObject
+      - Resource
+      - Folder
+      - FolderEntry
+      - AggregatedAnnotation
+      - Manifest
+    - type: array
+      items:
+        type: string
+  name:
+    type: string
+    description: Name of the workflow, process, or resource
+    x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#label
+  description:
+    type: string
+    description: Description of the workflow, process, or resource
+    x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#comment
+  value:
+    description: Value of an artifact or parameter
+  hasInput:
+    type: array
+    items:
+      type: object
+    x-jsonld-id: http://purl.org/wf4ever/wfdesc#hasInput
+    x-jsonld-type: '@id'
+  hasOutput:
+    type: array
+    items:
+      type: object
+    x-jsonld-id: http://purl.org/wf4ever/wfdesc#hasOutput
+    x-jsonld-type: '@id'
+  hasSubProcess:
+    type: array
+    items:
+      type: object
+      description: Sub-processes within the workflow
+    x-jsonld-id: http://purl.org/wf4ever/wfdesc#hasSubProcess
+    x-jsonld-type: '@id'
+  hasDataLink:
+    type: array
+    items:
+      type: object
+    x-jsonld-id: http://purl.org/wf4ever/wfdesc#hasDataLink
+    x-jsonld-type: '@id'
+  hasSource:
+    type: object
+    description: Source output of a data link
+    x-jsonld-id: http://purl.org/wf4ever/wfdesc#hasSource
+    x-jsonld-type: '@id'
+  hasSink:
+    type: object
+    description: Sink input of a data link
+    x-jsonld-id: http://purl.org/wf4ever/wfdesc#hasSink
+    x-jsonld-type: '@id'
+  describedByWorkflow:
+    type: object
+    description: Links a workflow run to its description
+    x-jsonld-id: http://purl.org/wf4ever/wfprov#describedByWorkflow
+    x-jsonld-type: '@id'
+  describedByProcess:
+    type: object
+    description: Links a process run to its description
+    x-jsonld-id: http://purl.org/wf4ever/wfprov#describedByProcess
+    x-jsonld-type: '@id'
+  wasPartOfWorkflowRun:
+    type: object
+    description: Links a process run to the workflow run
+    x-jsonld-id: http://purl.org/wf4ever/wfprov#wasPartOfWorkflowRun
+    x-jsonld-type: '@id'
+  usedInput:
+    type: array
+    items:
+      type: object
+    description: Input artifacts used by a process run
+    x-jsonld-id: http://purl.org/wf4ever/wfprov#usedInput
+    x-jsonld-type: '@id'
+  wasOutputFrom:
+    type: array
+    items:
+      type: object
+    description: Output artifacts generated
+    x-jsonld-id: http://purl.org/wf4ever/wfprov#wasOutputFrom
+    x-jsonld-type: '@id'
+  wasAssociatedWith:
+    type: array
+    items:
+      type: object
+    description: Agents associated with the execution
+  wasEnactedBy:
+    type: object
+    description: Workflow engine that executed the run
+  aggregates:
+    type: array
+    items:
+      type: object
+    description: Resources aggregated in a research object or folder
+    x-jsonld-id: http://www.openarchives.org/ore/terms/aggregates
+    x-jsonld-type: '@id'
+  rootFolder:
+    type: object
+    description: Root folder of a research object
+    x-jsonld-id: http://purl.org/wf4ever/ro#rootFolder
+    x-jsonld-type: '@id'
+  entryName:
+    type: string
+    description: Name of a folder entry
+    x-jsonld-id: http://purl.org/wf4ever/ro#entryName
+  annotatesAggregatedResource:
+    type: object
+    description: Resource being annotated
+    x-jsonld-id: http://purl.org/wf4ever/ro#annotatesAggregatedResource
+    x-jsonld-type: '@id'
+  manifest:
+    type: object
+    description: Manifest of a research object
+  isDescribedBy:
+    type: object
+    description: Description of a resource
+    x-jsonld-id: http://www.openarchives.org/ore/terms/isDescribedBy
+    x-jsonld-type: '@id'
+x-jsonld-extra-terms:
+  Workflow: http://purl.org/wf4ever/wfdesc#Workflow
+  Process: http://purl.org/wf4ever/wfdesc#Process
+  WorkflowInstance: http://purl.org/wf4ever/wfdesc#WorkflowInstance
+  Input: http://purl.org/wf4ever/wfdesc#Input
+  Output: http://purl.org/wf4ever/wfdesc#Output
+  Parameter: http://purl.org/wf4ever/wfdesc#Parameter
+  DataLink: http://purl.org/wf4ever/wfdesc#DataLink
+  Artifact: http://purl.org/wf4ever/wfprov#Artifact
+  Configuration: http://purl.org/wf4ever/wfdesc#Configuration
+  WorkflowEngine: http://purl.org/wf4ever/wfprov#WorkflowEngine
+  WorkflowRun: http://purl.org/wf4ever/wfprov#WorkflowRun
+  ProcessRun: http://purl.org/wf4ever/wfprov#ProcessRun
+  ResearchObject: http://purl.org/wf4ever/ro#ResearchObject
+  Resource: http://purl.org/wf4ever/ro#Resource
+  AggregatedAnnotation: http://purl.org/wf4ever/ro#AggregatedAnnotation
+  Folder: http://purl.org/wf4ever/ro#Folder
+  FolderEntry: http://purl.org/wf4ever/ro#FolderEntry
+x-jsonld-prefixes:
+  wfdesc: http://purl.org/wf4ever/wfdesc#
+  wfprov: http://purl.org/wf4ever/wfprov#
+  ro: http://purl.org/wf4ever/ro#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  ore: http://www.openarchives.org/ore/terms/
+  prov: http://www.w3.org/ns/prov#
+  cwlprov: https://w3id.org/cwl/prov#
